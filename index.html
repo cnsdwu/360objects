@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>360°物体环视</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div id="containerBox" class="container-box">
+      <ul id="imgsUl" style="width: 80%; height: 80%;">
+        <!-- 最终数据格式 -->
+        <!-- <li>
+                <img class="img" src="images/data/15641034359142t9.PNG" alt="">
+                <div class="hotspot"> 
+                    <div class="title">热点</div> 
+                    <div class="icon"> 
+                        <img src="images/data/point.png" alt=""> 
+                    </div> 
+                </div> 
+            </li>
+            <li>
+                <img src="images/data/1564103435916gdq.PNG" alt="">
+            </li> -->
+      </ul>
+    </div>
+    <!-- 按钮 -->
+    <div class="buttons">
+      <div class="right-bottom">
+        <ul>
+          <li id="autoRotate" title="自动旋转">
+            <img src="images/btn-ani-play.png" alt="" class="icon" />
+            <span class="text">自动旋转</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 插件 -->
+    <div class="plugins">
+      <!-- 图文弹窗 -->
+      <div id="modalMask" class="modal-mask">
+        <div id="closeModalMask" class="close-modal-mask"></div>
+        <div class="modal-container">
+          <div class="header">
+            <h1 id="modalTitle" class="text"></h1>
+          </div>
+          <div id="modalBody" class="body">
+            <h2></h2>
+          </div>
+        </div>
+      </div>
+      <!-- 加载中 -->
+      <div id="loading" class="loading">
+        <img src="images/loading.gif" />
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>

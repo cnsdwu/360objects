@@ -1,0 +1,295 @@
+* {
+  box-sizing: border-box;
+}
+ul,
+ol {
+  list-style: none;
+}
+ul {
+  padding: 0;
+}
+ul,
+body,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+img {
+  vertical-align: middle;
+}
+body {
+  overflow: hidden;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.container-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 1000px;
+  margin: auto;
+  user-select: none;
+}
+.container-box ul {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  transition: width 0.1s linear, height 0.1s linear;
+}
+.container-box ul li {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.container-box ul li.show {
+  display: block;
+}
+.container-box ul li .img {
+  width: 100%;
+  transform-origin: center center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.container-box ul li .hotspot {
+  position: absolute;
+  left: 35%;
+  top: 48%;
+  text-align: center;
+  transform: translate(-50%, -100%) translateY(10px);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+}
+.container-box ul li .hotspot .icon {
+  display: inline-block;
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+}
+.container-box ul li .hotspot .icon img {
+  width: 100%;
+  height: 100%;
+  vertical-align: bottom;
+}
+.container-box ul li .hotspot .title {
+  padding: 4px 7px;
+  line-height: 1;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.modal-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: none;
+}
+.modal-mask .close-modal-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(181, 181, 181, 0.6);
+}
+.modal-mask .modal-container {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+.modal-mask .modal-container .header {
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
+.modal-mask .modal-container .header .text {
+  text-align: center;
+  font-size: 1.3em;
+}
+.modal-mask .modal-container .body {
+  overflow: auto;
+  height: 93%;
+  margin: 10px;
+}
+.buttons {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+.buttons .right-bottom {
+  pointer-events: all;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.buttons .right-bottom ul li {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+.buttons .right-bottom ul li .icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  display: block;
+}
+.buttons .right-bottom ul li .text {
+  line-height: 24px;
+  font-size: 0.8em;
+}
+.loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10000009;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.loading.hide {
+  display: none;
+}
+.loading img {
+  width: 62px;
+  height: 62px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.contextmenu {
+  position: absolute;
+  background-color: #fff;
+  display: none;
+}
+.contextmenu.show {
+  display: block;
+}
+.contextmenu .name {
+  padding: 5px 10px;
+  line-height: 1.6em;
+  border-bottom: 1px solid #ccc;
+}
+.contextmenu ul li {
+  padding: 5px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.contextmenu ul li:hover {
+  background-color: #ccc;
+}
+.editor {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+.editor .center-center {
+  display: none;
+}
+.editor .center-center.show {
+  display: block;
+}
+.editor .center-center .form-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: all;
+  z-index: 100;
+}
+.editor .center-center .form-container {
+  pointer-events: all;
+  position: absolute !important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 10px;
+  z-index: 200;
+}
+.editor .center-center .form-container .form-group {
+  padding: 10px 0;
+}
+.editor .center-center .form-container .form-group.form-title .label,
+.editor .center-center .form-container .form-group.form-color .label {
+  display: inline-block;
+}
+.editor .center-center .form-container .form-group.form-title .input,
+.editor .center-center .form-container .form-group.form-color .input {
+  display: inline-block;
+}
+.editor .center-center .form-container .form-group .label {
+  font-size: 1.2em;
+}
+.editor .center-center .form-container .form-group .input {
+  margin-top: 10px;
+}
+.editor .right-top {
+  pointer-events: all;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.editor .right-top ul li {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  margin: 10px;
+}
+.editor .right-top ul li .icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  display: block;
+}
+.editor .right-top ul li.btn-link,
+.editor .right-top ul li.btn-buy,
+.editor .right-top ul li.btn-music,
+.editor .right-top ul li.btn-advisory {
+  display: none;
+}
+.editor .right-top ul li.btn-link.show,
+.editor .right-top ul li.btn-buy.show,
+.editor .right-top ul li.btn-music.show,
+.editor .right-top ul li.btn-advisory.show {
+  display: block;
+}

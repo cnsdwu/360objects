@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>编辑模式</title>
+    <link rel="stylesheet" href="css/index-edit.css" />
+  </head>
+  <body>
+    <div id="containerBox" class="container-box">
+      <ul id="imgsUl" style="width: 0%; height: 0%;">
+        <!-- 数据格式 -->
+        <!-- <li>
+          <img class="img" src="images/data/15641034359142t9.PNG" alt="" />
+          <div class="hotspot">
+            <div class="title">热点</div>
+            <div class="icon">
+              <img src="images/data/point.png" alt="" />
+            </div>
+          </div>
+        </li>
+        <li>
+          <img src="images/data/1564103435916gdq.PNG" alt="" />
+        </li> -->
+      </ul>
+    </div>
+    <!-- 图文编辑 -->
+    <div class="editor">
+      <div id="centerCenter" class="center-center">
+        <div id="formMask" class="form-mask"></div>
+        <div class="form-container">
+          <div class="form-group form-title">
+            <div class="label">标题</div>
+            <div class="input">
+              <input id="title" type="text" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="label">内容</div>
+            <div class="input">
+              <!-- 加载编辑器的容器 -->
+              <script id="container" name="content" type="text/plain"></script>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input">
+              <button id="formSubmit">提交</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 右上角 -->
+      <div class="right-top">
+        <div class="group">
+          <button id="btnSave" class="btn">保存更改</button>
+        </div>
+      </div>
+    </div>
+    <!-- 右键菜单 -->
+    <div id="contextmenu" class="contextmenu">
+      <div class="name">名称</div>
+      <ul>
+        <li id="btnAdd">添加热点</li>
+        <li id="btnEditor">编辑</li>
+        <li id="btnDelete">删除</li>
+      </ul>
+    </div>
+    <!-- 按钮 -->
+    <div class="buttons">
+      <div class="right-bottom">
+        <ul></ul>
+      </div>
+    </div>
+    <!-- 插件 -->
+    <div class="plugins">
+      <!-- 图文弹窗 -->
+      <div id="modalMask" class="modal-mask">
+        <div id="closeModalMask" class="close-modal-mask"></div>
+        <div class="modal-container">
+          <div class="header">
+            <h1 id="modalTitle" class="text"></h1>
+          </div>
+          <div id="modalBody" class="body">
+            <h2></h2>
+          </div>
+        </div>
+      </div>
+      <!-- 加载中 -->
+      <div id="loading" class="loading">
+        <img src="images/loading.gif" />
+      </div>
+    </div>
+    <!-- ueditor -->
+    <script src="js/ueditor/ueditor.config.js"></script>
+    <script src="js/ueditor/ueditor.all.min.js"></script>
+    <script src="js/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!-- 提示插件 -->
+    <script src="js/component.js"></script>
+    <script src="js/index-edit.js"></script>
+    <script>
+      var ue = UE.getEditor("container", {
+        initialFrameHeight: 400,
+        autoHeightEnabled: false,
+        initialFrameWidth: 1000,
+      });
+    </script>
+  </body>
+</html>
