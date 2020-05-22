@@ -389,6 +389,9 @@ imageTextEl.addEventListener("mousedown", (e) => {
 imageTextEl.addEventListener("touchstart", (e) => {
   e.stopPropagation();
 });
+imageTextEl.addEventListener("mousewheel", (e) => {
+  e.stopPropagation();
+});
 function clickHotspot(imgsIndex, hotspotIndex) {
   let item = data.imgs[imgsIndex].hotspot[hotspotIndex];
   modalTitleEl.innerHTML = item.title;
