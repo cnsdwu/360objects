@@ -4,8 +4,7 @@ let data = {
   imgs: [
     {
       index: "0",
-      imgsrc:
-        "images/data/15641034359142t9.PNG",
+      imgsrc: "images/data/15641034359142t9.PNG",
       hotspot: [
         {
           title: "aa",
@@ -17,38 +16,31 @@ let data = {
     },
     {
       index: "1",
-      imgsrc:
-        "images/data/1564103435916gdq.PNG",
+      imgsrc: "images/data/1564103435916gdq.PNG",
     },
     {
       index: "2",
-      imgsrc:
-        "images/data/1564103435918yaw.PNG",
+      imgsrc: "images/data/1564103435918yaw.PNG",
     },
     {
       index: "3",
-      imgsrc:
-        "images/data/1564103435919qyo.PNG",
+      imgsrc: "images/data/1564103435919qyo.PNG",
     },
     {
       index: "4",
-      imgsrc:
-        "images/data/156410343592039i.PNG",
+      imgsrc: "images/data/156410343592039i.PNG",
     },
     {
       index: "5",
-      imgsrc:
-        "images/data/15641034359227mw.PNG",
+      imgsrc: "images/data/15641034359227mw.PNG",
     },
     {
       index: "6",
-      imgsrc:
-        "images/data/1564103435924dwd.PNG",
+      imgsrc: "images/data/1564103435924dwd.PNG",
     },
     {
       index: "7",
-      imgsrc:
-        "images/data/156410343592609p.PNG",
+      imgsrc: "images/data/156410343592609p.PNG",
     },
   ],
   name: "test",
@@ -82,6 +74,7 @@ fetch("/data/data.json", {
     }
   });
 
+let isShowImageText = false; // 已显示图文
 // 初使化函数
 function init() {
   let loaded = false;
@@ -164,7 +157,6 @@ function init() {
 
     // 开始时
     function funStart(e) {
-      // console.log(e);
       if (e.which == 1) {
         startX = e.pageX;
       } else if (e.targetTouches && e.touches.length == 1) {
@@ -198,6 +190,7 @@ function init() {
     // 关闭图文
     document.querySelector("#closeModalMask").addEventListener("click", (e) => {
       imageTextEl.style.display = "none";
+      isShowImageText = false;
     });
   }
   // 右键拖动
@@ -237,19 +230,20 @@ function init() {
     let isRotate = true;
     let isBtnRotate = true;
     let timerPrevent = null;
-    let hotspotEl = document.querySelector("#hotspot");
+    let hotspotEl = document.querySelectorAll(".hotspot"); // 所有热点
+    let loopCount = 0;
     setInterval(() => {
       // 循环执行
-      loaded && isRotate && isBtnRotate && toggleImage();
+      loaded && (++loopCount)>5 && !isShowImageText && isRotate && isBtnRotate && toggleImage();
     }, 1000);
     // 暂停、开始逻辑
     document.addEventListener("mousedown", stopRotate);
     document.addEventListener("mouseup", startRotate);
     document.addEventListener("touchstart", stopRotate);
     document.addEventListener("touchend", startRotate);
-    if (hotspotEl) {
-      hotspotEl.addEventListener("mouseenter", stopRotate);
-      hotspotEl.addEventListener("mouseleave", startRotate);
+    for (let item of hotspotEl) {
+      item.addEventListener("mouseenter", stopRotate);
+      item.addEventListener("mouseleave", startRotate);
     }
     // 将要开始时
     function startRotate() {
@@ -268,13 +262,11 @@ function init() {
       .querySelector("#autoRotate")
       .addEventListener("click", function (e) {
         if (isBtnRotate) {
-          this.querySelector(".icon").src =
-            "/static/images/ring_obj/btn-ani-pause.png";
+          this.querySelector(".icon").src = "images/btn-ani-pause.png";
           isBtnRotate = false;
           isRotate = false;
         } else {
-          this.querySelector(".icon").src =
-            "/static/images/ring_obj/btn-ani-play.png";
+          this.querySelector(".icon").src = "images/btn-ani-play.png";
           isBtnRotate = true;
           isRotate = true;
         }
@@ -410,6 +402,7 @@ function clickHotspot(imgsIndex, hotspotIndex) {
   modalTitleEl.innerHTML = item.title;
   modalBodyEl.innerHTML = item.html;
   imageTextEl.style.display = "block";
+  isShowImageText = true;
 }
 
 // 切换显示图片
