@@ -1,6 +1,5 @@
 // 数据
 let data = {
-  id: "7",
   imgs: [
     {
       index: "0",
@@ -43,13 +42,6 @@ let data = {
       imgsrc: "images/data/156410343592609p.PNG",
     },
   ],
-  name: "test",
-  view_num: "60",
-  pk_user_main: "1232",
-  thumb_path:
-    "//www.zhzgvr.com/storage/1232/obj3d/20190919/1568857503647y21.PNG",
-  create_time: "2019-09-19 09:45:36",
-  flag_publish: "1",
 };
 
 // 从后台获取数据
