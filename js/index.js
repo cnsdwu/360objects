@@ -101,7 +101,7 @@ function init() {
           hotspot += `<div class="hotspot" style="left:${item2.x}%;top:${item2.y}%;"> 
         <div class="title" onclick="clickHotspot(${index},${index2})">${item2.title}</div> 
         <div class="icon" onclick="clickHotspot(${index},${index2})"> 
-            <img src="images/point.png" alt=""> 
+            <img src="images/point.png" alt="" draggable="false"> 
         </div> 
     </div> `;
         });
